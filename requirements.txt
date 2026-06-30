@@ -1,0 +1,6 @@
+# Dependencias del proyecto
+# Instálalas todas de una vez con:  pip install -r requirements.txt
+
+langchain>=0.3
+langchain-ollama>=0.2
+langchain-core>=0.3

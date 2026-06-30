@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "agente-traductor-subtitulos"
+version = "0.1.0"
+description = "Pipeline de traducción cinematográfica con TranslateGemma, Ollama y LangChain"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Enrique Aranda Varela" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "langchain>=0.3",
+    "langchain-ollama>=0.2",
+    "langchain-core>=0.3",
+]
+
+[project.optional-dependencies]
+dev = ["ipykernel", "jupyter"]
+

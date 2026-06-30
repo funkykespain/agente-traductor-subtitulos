@@ -1,0 +1,33 @@
+# ── Credenciales ─────────────────────────────────────────────────────────────
+# MUY IMPORTANTE: este archivo contiene tus claves privadas.
+# Nunca debe subirse a GitHub ni compartirse.
+.env
+
+# ── Entorno virtual de Python ─────────────────────────────────────────────────
+# Carpeta que crea Python al hacer: python -m venv .venv
+# No hace falta guardarla; cualquiera puede recrearla con pip install.
+.venv/
+venv/
+env/
+
+# ── Archivos de subtítulos traducidos (salida del script) ─────────────────────
+# Los archivos de entrada y salida .srt no forman parte del código.
+*.srt
+
+# ── Caché de Python ───────────────────────────────────────────────────────────
+# Python genera estos archivos automáticamente; no aportan nada al repositorio.
+__pycache__/
+*.pyc
+*.pyo
+
+# ── Archivos de sistema ───────────────────────────────────────────────────────
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# ── Editores e IDEs ───────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+
+# ── Archivos personales ───────────────────────────────────────────────────────
+mios/

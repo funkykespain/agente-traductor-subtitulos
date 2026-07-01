@@ -40,7 +40,28 @@ ollama pull translategemma
 
 ---
 
-### 3. Las librerías de Python
+### 3. Descargar (o actualizar) el proyecto desde GitHub
+
+El código de este proyecto está alojado en GitHub. Para obtenerlo en tu ordenador:
+
+**Primera vez — clonar el repositorio:**
+```
+git clone https://github.com/funkykespain/agente-traductor-subtitulos.git
+```
+Esto crea una carpeta llamada `agente-traductor-subtitulos` con todos los archivos del proyecto. A partir de ahora trabaja siempre **dentro de esa carpeta**.
+
+**Para actualizar el proyecto (si ya lo tenías descargado):**
+```
+cd agente-traductor-subtitulos
+git pull
+```
+Haz esto cada vez que quieras recibir las últimas mejoras o correcciones.
+
+> 💡 **¿No tienes Git instalado?** Descárgalo desde [git-scm.com](https://git-scm.com/downloads) e instálalo como cualquier otro programa. Durante la instalación puedes dejar todas las opciones por defecto. Una vez instalado, abre una terminal nueva y escribe `git --version` para comprobar que funciona.
+
+---
+
+### 4. Las librerías de Python
 
 Las librerías son extensiones que añaden funcionalidades extra a Python. Este proyecto usa tres:
 
@@ -61,16 +82,16 @@ pip install -r requirements.txt
 ## Estructura del proyecto
 
 ```
-traductor-cine/
+agente-traductor-subtitulos/
 │
-├── traductor-subtitulos.py        ← el script principal (empieza aquí)
+├── traductor-subtitulos.py     ← el script principal (empieza aquí)
 │
-├── subtitulos.srt             ← tu archivo de subtítulos en español (lo pones tú)
+├── subtitulos.srt              ← tu archivo de subtítulos en español (lo pones tú)
 │
-├── requirements.txt           ← lista de librerías necesarias
-├── pyproject.toml             ← metadatos del proyecto
-├── .gitignore                 ← archivos que no se suben a GitHub
-└── LICENSE                    ← licencia MIT
+├── requirements.txt            ← lista de librerías necesarias
+├── pyproject.toml              ← metadatos del proyecto
+├── .gitignore                  ← archivos que no se suben a GitHub
+└── LICENSE                     ← licencia MIT
 ```
 
 ---

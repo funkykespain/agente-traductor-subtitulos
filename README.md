@@ -14,7 +14,7 @@ Lee un archivo de subtítulos en español (`.srt`), traduce cada línea de diál
 
 ## Requisitos de hardware
 
-No, no cualquier PC puede ejecutar este script sin problemas. El modelo de inteligencia artificial ocupa aproximadamente **3.3 GB** y necesita cargarse completo en memoria, así que tu ordenador debe cumplir unos mínimos.
+No cualquier PC puede ejecutar este script sin problemas. El modelo de inteligencia artificial ocupa aproximadamente **3.3 GB** y necesita cargarse completo en memoria, así que tu ordenador debe cumplir unos mínimos.
 
 ### Memoria (RAM / VRAM)
 

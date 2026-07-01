@@ -12,6 +12,43 @@ Lee un archivo de subtítulos en español (`.srt`), traduce cada línea de diál
 
 ---
 
+## Requisitos de hardware
+
+No, no cualquier PC puede ejecutar este script sin problemas. El modelo de inteligencia artificial ocupa aproximadamente **3.3 GB** y necesita cargarse completo en memoria, así que tu ordenador debe cumplir unos mínimos.
+
+### Memoria (RAM / VRAM)
+
+| Recurso | Mínimo | Recomendado |
+|---|---|---|
+| **Espacio en disco** | 3.3 GB libres (para descargar el modelo) | 5 GB o más |
+| **RAM del sistema** | 8 GB | 16 GB |
+| **VRAM (memoria de la GPU)** | — | 4 GB o más (para que quepa el modelo entero) |
+
+- **8 GB de RAM**: puede funcionar, pero el sistema irá justo y la traducción será muy lenta.
+- **16 GB de RAM**: el escenario ideal para que el modelo y el sistema operativo convivan sin problemas.
+- **Menos de 8 GB de RAM**: no se recomienda. El modelo no podrá cargarse correctamente.
+
+### GPU (tarjeta gráfica) — opcional pero muy recomendada
+
+El script viene configurado para cargar el modelo entero en la GPU (`num_gpu = 99`, línea 94 de `traductor-subtitulos.py`), lo que da la máxima velocidad. El autor desarrolló y probó el código con una **GPU RTX 4070**.
+
+**Si no tienes GPU dedicada**, el script seguirá funcionando, pero usará la CPU y será bastante más lento. Puedes modificar el parámetro `num_gpu` en esa misma línea para que el modelo no intente cargarse en una GPU que no existe (aunque el script ya intenta caer en CPU automáticamente si no encuentra una GPU compatible).
+
+### Procesador
+
+Cualquier CPU moderna sirve. La diferencia de velocidad la marca tener o no tener GPU.
+
+### Tabla resumen de escenarios
+
+| Tu PC... | ¿Funciona? | ¿Qué esperar? |
+|---|---|---|
+| Tiene GPU dedicada (RTX 4070 o similar) | ✅ Sí | Rápido. Traduce un archivo de película en pocos minutos |
+| Tiene 16 GB de RAM, sin GPU | ✅ Sí | Lento pero usable. Puedes dejar el script corriendo y hacer otra cosa |
+| Tiene 8 GB de RAM, sin GPU | ⚠️ Posible | Muy lento. El ordenador puede ir justo de recursos |
+| Tiene 4 GB de RAM o menos | ❌ No | El modelo no cabe en memoria. No lo intentes |
+
+---
+
 ## Requisitos previos
 
 Antes de ejecutar el script necesitas tener instalado en tu ordenador:

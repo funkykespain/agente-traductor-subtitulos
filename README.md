@@ -75,6 +75,10 @@ ollama pull translategemma
 ```
 > ⚠️ El modelo ocupa aproximadamente **3.3 GB**. Asegúrate de tener espacio en disco y conexión estable antes de descargarlo.
 
+Ya podrías chatear con este modelo ejecutando:
+```
+ollama run translategemma
+```
 ---
 
 ### 3. Descargar (o actualizar) el proyecto desde GitHub

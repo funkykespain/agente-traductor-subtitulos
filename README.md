@@ -51,15 +51,30 @@ Cualquier CPU moderna sirve. La diferencia de velocidad la marca tener o no tene
 
 ## Requisitos previos
 
-Antes de ejecutar el script necesitas tener instalado en tu ordenador:
+Antes de ejecutar el script necesitas tener instalado en tu ordenador: **Python, Ollama y Git**, y comprobar que los tres funcionan antes de pasar al siguiente paso.
 
-### 1. Python 3.10 o superior
+> 💻 **¿Qué terminal usar?** Todos los comandos de esta guía pueden ejecutarse desde **PowerShell** o **Windows Terminal** (en macOS/Linux, desde la Terminal habitual). Si no sabes cuál abrir en Windows, busca "PowerShell" en el menú de inicio.
+
+El orden recomendado es este:
+
+1. Instalar Python
+2. Instalar Ollama
+3. Instalar Git
+4. Comprobar que los tres funcionan (`python --version`, `git --version`, `ollama --version`)
+5. Clonar el repositorio
+6. Instalar las librerías de Python
+
+Este orden es importante: si intentas clonar el repositorio (paso 5) antes de tener Git instalado (paso 3), obtendrás un error. A continuación se explica cada paso en detalle.
+
+### 1. Python 3.10–3.12 recomendado
 
 Comprueba si ya lo tienes abriendo una terminal y escribiendo:
 ```
 python --version
 ```
 Si no lo tienes, descárgalo desde [python.org](https://www.python.org/downloads/).
+
+> ⚠️ **Evita versiones muy recientes de Python (como 3.14).** Este proyecto se ha probado con Python 3.10 a 3.12. Las versiones más nuevas pueden no ser compatibles todavía con `langchain` y sus dependencias, lo que provoca errores al ejecutar `pip install`. Si tienes una versión muy reciente instalada y te falla la instalación de librerías, instala también una versión 3.10–3.12 y utilízala para este proyecto.
 
 ---
 
@@ -79,9 +94,51 @@ Ya podrías chatear con este modelo ejecutando:
 ```
 ollama run translategemma
 ```
+
+> 🪟 **Nota para Windows — "ollama no se reconoce como un comando":** si acabas de instalar Ollama y `ollama --version` no funciona, pero ejecutar la ruta completa sí funciona (por ejemplo `C:\Users\<usuario>\AppData\Local\Programs\Ollama\ollama.exe --version`), esto significa que el instalador ha añadido Ollama al PATH, pero Windows todavía no ha recargado esa variable en la sesión actual. **Cierra sesión y vuelve a entrar, o reinicia el equipo.** Después de reiniciar, `ollama --version` debería funcionar en cualquier terminal nueva.
+
 ---
 
-### 3. Descargar (o actualizar) el proyecto desde GitHub
+### 3. Git (no es opcional)
+
+Git es necesario para descargar el proyecto en el siguiente paso, así que instálalo **ahora**, antes de intentar clonar el repositorio.
+
+Descárgalo desde [git-scm.com](https://git-scm.com/downloads) e instálalo como cualquier otro programa. Durante la instalación puedes dejar todas las opciones por defecto; asegúrate de que quede seleccionada la opción que añade Git al PATH (en el instalador de Windows suele aparecer como **"Git from the command line and also from 3rd-party software"**).
+
+Una vez instalado, abre una terminal **nueva** y comprueba que funciona con:
+```
+git --version
+```
+
+> 🪟 **Si Windows dice `git : El término 'git' no se reconoce...`:** significa que Git no está instalado, o que está instalado pero no en el PATH — el mismo problema que puede pasar con Ollama. Comprueba primero dónde está con:
+> ```powershell
+> where.exe git
+> ```
+> Si no devuelve nada, reinstala Git desde [git-scm.com/download/win](https://git-scm.com/download/win) prestando atención a la opción del PATH mencionada arriba, y abre una terminal nueva (o reinicia sesión) después de instalarlo.
+
+---
+
+### 4. Comprobar la instalación
+
+Antes de continuar, comprueba que los tres programas están instalados y accesibles desde la terminal:
+
+```
+python --version
+git --version
+ollama --version
+```
+
+Si cualquiera de estos comandos produce un mensaje como:
+
+```
+El término 'xxxx' no se reconoce como nombre de un cmdlet, función, archivo de script o programa ejecutable...
+```
+
+significa que ese programa no está instalado, o que está instalado pero no está añadido al PATH. Revisa la sección correspondiente más arriba (Python, Ollama o Git) antes de seguir adelante — resolverlo ahora evita errores más confusos en pasos posteriores.
+
+---
+
+### 5. Descargar (o actualizar) el proyecto desde GitHub
 
 El código de este proyecto está alojado en GitHub. Para obtenerlo en tu ordenador:
 
@@ -98,11 +155,9 @@ git pull
 ```
 Haz esto cada vez que quieras recibir las últimas mejoras o correcciones.
 
-> 💡 **¿No tienes Git instalado?** Descárgalo desde [git-scm.com](https://git-scm.com/downloads) e instálalo como cualquier otro programa. Durante la instalación puedes dejar todas las opciones por defecto. Una vez instalado, abre una terminal nueva y escribe `git --version` para comprobar que funciona.
-
 ---
 
-### 4. Las librerías de Python
+### 6. Las librerías de Python
 
 Las librerías son extensiones que añaden funcionalidades extra a Python. Este proyecto usa tres:
 
@@ -134,6 +189,25 @@ agente-traductor-subtitulos/
 ├── .gitignore                  ← archivos que no se suben a GitHub
 └── LICENSE                     ← licencia MIT
 ```
+
+---
+
+## Verificación antes de ejecutar el proyecto
+
+Antes de pasar al siguiente apartado, comprueba que todo lo anterior está en orden ejecutando estos comandos en la terminal:
+
+```
+python --version
+git --version
+ollama --version
+ollama list
+```
+
+- `python --version` y `git --version` deben mostrar un número de versión, no un error.
+- `ollama --version` debe mostrar un número de versión (si falla en Windows, revisa la nota sobre el PATH en la sección de Ollama).
+- `ollama list` debe mostrar `translategemma` en la lista de modelos descargados.
+
+Si estos cuatro comandos funcionan correctamente, el proyecto debería ejecutarse sin problemas de entorno.
 
 ---
 
@@ -185,6 +259,15 @@ El resultado se guardará automáticamente como `subtitulos_en.srt` (o el códig
 
 **`model 'translategemma' not found`**
 → El modelo no se ha descargado todavía. Ejecuta `ollama pull translategemma`.
+
+**`git : El término 'git' no se reconoce como nombre de un cmdlet...`** (Windows)
+→ Git no está instalado, o está instalado pero no en el PATH. Comprueba con `where.exe git` en PowerShell; si no devuelve nada, instala Git desde [git-scm.com/download/win](https://git-scm.com/download/win) marcando la opción que lo añade al PATH, y abre una terminal nueva después de instalarlo.
+
+**`ollama : El término 'ollama' no se reconoce como nombre de un cmdlet...`** (Windows)
+→ Ollama está instalado pero Windows aún no ha actualizado el PATH en la sesión actual. Cierra sesión o reinicia el equipo y vuelve a intentarlo en una terminal nueva.
+
+**Errores raros al instalar las librerías con `pip install -r requirements.txt`**
+→ Comprueba tu versión de Python con `python --version`. Si tienes Python 3.13 o 3.14, instala una versión 3.10–3.12 y usa esa para el proyecto; algunas librerías todavía no son compatibles con las versiones más nuevas de Python.
 
 ---
 

@@ -283,10 +283,3 @@ Consulta el archivo [LICENSE](/LICENSE) para más detalles.
 Si estás estudiando este repositorio o utilizándolo como material didáctico, puedes consultar la **guía detallada paso a paso** con explicaciones teóricas y técnicas adicionales aquí:
 
 👉 **[Leer la guía en DeepWiki](https://deepwiki.com/funkykespain/agente-traductor-subtitulos)**
-
-```
-
-## Licencia
-
-MIT License — © 2026 Enrique Aranda Varela.
-Consulta el archivo [LICENSE](LICENSE) para más detalles.
